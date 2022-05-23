@@ -11,7 +11,7 @@ app.use(cors());
 
 
 
-
+const carRentAdvertList = require("./router/carRentAdvert")
 
 mongoose.connection.once("open",()=>{
     console.log("Connect to DB!")
@@ -20,6 +20,7 @@ mongoose.connection.once("open",()=>{
     console.log("Failed to connect" + error)
 })
 
+app.use("/",carRentAdvertList)
 app.listen(3000,()=> { // server fonksiyonu dinlenmeye başladığında bu callback fonksiyonu çalıştırlacak
     console.log("Server is running on port 8080")
     })
