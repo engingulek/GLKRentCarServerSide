@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(cors()); 
 
 
-
+mongoose.connect("mongodb+srv://cartRentAdvert:IvZCKA2vCtYeDXzF@engingulek.ejner.mongodb.net/GLKRentCarDatabase?retryWrites=true&w=majority")
 
 
 const carRentAdvertList = require("./router/carRentAdvert")
