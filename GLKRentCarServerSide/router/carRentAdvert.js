@@ -1,5 +1,6 @@
 const express = require("express");
 const CarInfo = require("../model/CarInfo");
+const CarRent = require("../model/CarRent");
 const CarRentAdvert = require("../model/CarRentAdvert");
 
 
@@ -22,8 +23,26 @@ router.get("/carRentAdvertList",(req,res)=>{
         res.json(err);
     })
 })
+
+router.post("/carRent",(req,res)=>{
+    console.log(req.body)
+    const cartRent = new CarRent({
+        userId : req.body.userId,
+        advert : req.body.advert,
+        startTime: req.body.startTime,
+        carMinuteCost: req.body.advertMinuteCost
+    })
+
+    cartRent.save()
+    res.json({
+     success :1,
+     message:"success"
+ })
+})
+
 router.post("/createCartRentAdvert",(req,res)=>{
  
+   
     const newAdvertCarInfo = new CarInfo({
         carName: req.body.carName,
     carModel : req.body.carModel,
@@ -42,7 +61,8 @@ router.post("/createCartRentAdvert",(req,res)=>{
     carAdvertDescription :  req.body.carAdvertDescription,
     
     carLocationLongtude : req.body.carLocationLongtude,
-    carLocationLatitude : req.body.carLocationLatitude
+    carLocationLatitude : req.body.carLocationLatitude,
+    advertPassword : req.body. advertPassword
 
    })
    newCarRentAdvert.save()

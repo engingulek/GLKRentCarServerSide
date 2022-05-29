@@ -9,7 +9,8 @@ const CarRentAdvertSchema = new mongoose.Schema({
     carGasolineState : {type:Number,required:true},
     carAdvertDescription :  {type:String,required:true},
     carLocationLongtude : {type:String,required:true},
-    carLocationLatitude : {type:String,required:true}
+    carLocationLatitude : {type:String,required:true},
+    advertPassword : {type:String,required:true}
 
 })
 
