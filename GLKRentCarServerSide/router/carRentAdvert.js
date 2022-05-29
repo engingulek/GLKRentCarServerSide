@@ -32,7 +32,6 @@ router.post("/carRent",(req,res)=>{
         startTime: req.body.startTime,
         carMinuteCost: req.body.advertMinuteCost
     })
-
     cartRent.save()
     res.json({
      success :1,
